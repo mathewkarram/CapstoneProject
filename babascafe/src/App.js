@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
 import { Route, Routes, Link, BrowserRouter } from "react-router-dom";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
@@ -10,7 +9,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import { AboutUs } from "./aboutus.js";
 import { SignUp } from "./signup.js";
 import './App.css';
-function App(props) {
+export default function App(props) {
   return (
     <div className="App">
       <div>
@@ -30,7 +29,7 @@ function App(props) {
           </Container>
           </div>
         <Routes>
-          <Route path="/" element={<Home  google={props.google}/>} />
+          <Route path="/" element={<Home/>} />
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/signup" element={<SignUp />} />
         </Routes>
@@ -68,47 +67,20 @@ function App(props) {
 
   );
 }
-function Home(props) {
+function Home() {
   
   return (
     <div>
       <Body />
-      <h3 className="mapheading">Swing by our location!</h3>
-      <div className="map1">
-      <MapContainer google={props.google}/>
-      </div>
+      
     </div>
   )
 }
-function MapContainer(props) {
-  
-    const mapStyles = {
-      width: "100%",
-      height: "300px",
-      position: "relative"
-    };
-
-    return (
-      <Map
-        google={props.google}
-        zoom={14}
-        style={mapStyles}
-        initialCenter={{
-          lat: 43.6532,
-          lng: -79.3832
-        }}
-      >
-        <Marker position={{ lat: 43.6561, lng: -79.3802 }} />
-      </Map>
-    );
-  }
 
 
- export default GoogleApiWrapper({
-  apiKey: "AIzaSyAJD-xg5zyuUxz9LhtKop_eFdTEUgJkL0A"
-})(App);
 
-export function Body() {
+
+ function Body() {
   const [items, SetItems] = useState([]);
   const foodpics = [
     "https://www.allrecipes.com/thmb/yv2xN_cr4C-N9CG9stg3mc8R_Bo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/9069845-how-to-make-cheese-sticks-JanetFlo-4x3-1-96354370aba64fa0800156dc0bc87b3e.jpg",
@@ -132,7 +104,7 @@ export function Body() {
 
   React.useEffect(() => {
     fetch(
-      "https://api.nal.usda.gov/fdc/v1/foods/list?api_key=BzFXu12iRdyTztnqGZPF4kIiN0CYM1lkcsRQhQe5"
+      'https://api.nal.usda.gov/fdc/v1/foods/list?api_key=BzFXu12iRdyTztnqGZPF4kIiN0CYM1lkcsRQhQe5'
     )
       .then((response) => response.json())
       .then((json) => {
@@ -218,11 +190,13 @@ export function Body() {
           <Container>
             <Row>
               <Col xs={2} s={2} md={2} lg={3} xl={4}></Col>
-              <Col xs={8} s={8} md={10} lg={12} xl={14}>
+              <Col xs={8} s={8} md={10} lg={14} xl={16}>
                 <div className="container1">
+                  <div class="container1item"></div>
                   <div>
                     {i !== 0 && (
-
+                      <div>
+                       <div class="container1item"></div> 
                       <img
                         className="foodimg"
                         variant="top"
@@ -230,7 +204,8 @@ export function Body() {
                         alt="Food"
                         style={{ width: '8rem', height: '10rem', margin: 'auto' }}
                       />
-
+                      <div class="container1item"></div>
+                      </div>
                     )}
                     {i !== 0 && <h3 className="info">{headings[i % headings.length]}</h3>}
                     {x.foodNutrients.map((y) =>
@@ -251,7 +226,7 @@ export function Body() {
 
 
                   </div>
-
+                  <div class="container1item"></div>
                 </div>
               </Col>
               <Col xs={2} s={2} md={2} lg={3} xl={4}></Col>

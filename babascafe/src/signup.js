@@ -5,17 +5,38 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { useState } from "react";
 export  function SignUp() {
-  const [email, setEmail] = useState(" ");
-
-  function EmailCheck() {
-
-    if(!email.includes("@")){
-      alert("Please enter a valid email!");
-    }else {
-      alert("You have signed up for our Newsletter!");
-    }
+  
+  const [formData, setFormData] = useState({
     
-  }
+    name: '',
+    email: '',
+    
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    const response = await fetch('http://localhost:8000/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });
+
+    
+    console.log('Form submitted:', response);
+    setFormData({ name: '', email: '' });
+    alert('Thank you for subscribing!');
+  };
+
+
     return(
      <div>
       <Container>
@@ -31,38 +52,48 @@ export  function SignUp() {
       <Container>
       <Row>
       <Col xs={2} s={2} md={2} lg={3} xl={4}></Col>
-      <div class="container">
-        <form action="/signup" method="POST">
+      <div>
+        <form action="/signup" method="POST" onSubmit={handleSubmit} >
           <div class="form-group">
-            <label className="formlabel" for="name">Name: </label>
+            <div class= "flex_item"></div>
+            <label class= "flex_item" className="formlabel" for="name">Name: </label>
+            
             <input
               type="text"
-              class="form-control"
+              class="form-control flex-item"
               id="name"
               name="name"
+              value={formData.name} 
+              onChange={handleChange}
               required
+              
             />
+            <div class= "flex_item"></div>
           </div>
 
           <div class="form-group">
-            <label className="formlabel" for="email">Email: </label>
+          <div class= "flex_item"></div>
+            <label class= "flex_item" className="formlabel" for="email">Email: </label>
             <input
               type="email"
-              class="form-control"
+              class="form-control flex_item"
               id="email"
               name="email"
               required
-              onChange={(e)=>{setEmail(e.target.value)}}
+              value={formData.email} 
+              onChange={handleChange}
+              
             />
+            <div class= "flex_item"></div>
           </div>
 
           <Button
-            onClick={EmailCheck}
             variant="primary"
             type="submit"
+           
           >
             Subscribe
-          </Button>
+          </Button>s
         </form>
         
       </div>

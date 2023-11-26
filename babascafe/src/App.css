@@ -42,6 +42,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+  
 }
 .nav{
   background: transparent;
@@ -80,6 +81,12 @@ body {
 }
 .container1{
   border: 1px solid bisque;
+  display: flex;
+  justify-content: space-between;
+  width: 120%;
+}
+.container1item{
+  width: 20%;
 }
 .container1 img{
   position: relative;
@@ -91,8 +98,8 @@ body {
 }
 
 .info{
-  position: relative;
-  bottom: 150px;
+ display: flex;
+ flex-direction: column;
   color: gold;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-style: italic;
@@ -152,25 +159,40 @@ input{
   height: 1.5rem;
   background: transparent;
   color: bisque;
-  position: relative;
-  left: 500px;
+  
   
 }
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .form-group{
-  justify-content: center;
+
+  display: flex;
+  margin-bottom: 10px;
+  
+}
+.flex_item{
+  justify-self: left;
+  width: 50px;
+  margin: 0.5rem; 
+  
+}
+label{
+  margin-right: 10px;
+}
+input{
+  margin-left: 10px;
 }
 #email{
   width: 300px;
   height: 1.5rem;
   background: transparent;
   color: bisque;
-  position: relative;
-  left: 500px;
+ 
 }
-.formlabel{
-  position: relative;
-  right: 100px;
-}
+
 .aboutuspic{
   height: 500px;
   width: 500px;
@@ -180,104 +202,191 @@ input{
   color: gold;
   font-weight: bold;
 }
- @media only screen and (max-width: 900px) {
-  .container1 img{
-    visibility: hidden;
+
+ 
+@media only screen and (max-width: 1280px) {
+  
+  .container1{
+    display: flex;
+    justify-content: space-between;
+    width: 120%;
   }
-  #copyrightinfo{
-    color: bisque;
-    font-size: 0.5rem;
-    position: relative;
-    padding: 5px;
-   }
-   .container2 img{
-    visibility: hidden;
-   }
-   #email{
+  .container1item{
+    width: 20%;
+  }
+  
+  .info{
+    font-size: 1em;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #email{
     width: 250px;
     height: 1.5rem;
     background: transparent;
     color: bisque;
-    position: relative;
-    left: 120px;
+    
   }
   #name{
     width: 250px;
     height: 1.5rem;
     background: transparent;
     color: bisque;
-    position: relative;
-    left: 120px;
+   
   }
 
-}
 
-@media only screen and (max-width: 1000px) {
-  .container1 img{
-    position: relative;
-  right: 200px;
+}
+@media only screen and (max-width: 992px) {
+  .container1{
+    display: flex;
+    justify-content: space-between;
+    width: 107.5%;
+    
+  }
+  .container1item{
+    width: 20%;
+  }
+  .info{
+    font-size: 1em;
+    display: flex;
+    flex-direction: column;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .form-group{
+  
+    display: flex;
+    margin-bottom: 10px;
+    
+  }
+  .flex_item{
+    justify-self: left;
+    width: 50px;
+    margin: 0.5rem; 
+    
+  }
+  label{
+    margin-right: 10px;
+  }
+  input{
+    margin-left: 10px;
   }
   #email{
     width: 250px;
     height: 1.5rem;
     background: transparent;
     color: bisque;
-    position: relative;
-    left: 150px;
+    
   }
   #name{
     width: 250px;
     height: 1.5rem;
     background: transparent;
     color: bisque;
-    position: relative;
-    left: 150px;
+    
   }
 
+} 
+@media only screen and (max-width: 768px) {
+  
+  .container1{
+    display: flex;
+    justify-content: space-between;
+    width: 120%;
+  }
+  .container1item{
+    width: 20%;
+  }
+  .container img{
+    display: none;
+  }
+  
+  .info{
+    font-size: 1em;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #email{
+    width: 250px;
+    height: 1.5rem;
+    background: transparent;
+    color: bisque;
+    
+  }
+  #name{
+    width: 250px;
+    height: 1.5rem;
+    background: transparent;
+    color: bisque;
+   
+  }
+
+
 }
-@media only screen and (max-width: 1250px) {
-  .container1 img{
-    position: relative;
-  right: 200px;
+@media only screen and (max-width: 480px) {
+  
+  .container1{
+    display: flex;
+    justify-content: space-between;
+    width: 120%;
+  }
+  .container1item{
+    width: 20%;
+  }
+  .container img{
+    display: none;
+  }
+  
+  .info{
+    font-size: 1em;
+    display: flex;
+    flex-direction: column;
   }
   #email{
     width: 250px;
     height: 1.5rem;
     background: transparent;
     color: bisque;
-    position: relative;
-    left: 250px;
+    
   }
   #name{
     width: 250px;
     height: 1.5rem;
     background: transparent;
     color: bisque;
-    position: relative;
-    left: 250px;
-  }
-
-
-}
-@media only screen and (max-width: 360px) {
-  #email{
-    width: 250px;
-    height: 1.5rem;
-    background: transparent;
-    color: bisque;
-    position: relative;
-    left: 10px;
-  }
-  #name{
-    width: 250px;
-    height: 1.5rem;
-    background: transparent;
-    color: bisque;
-    position: relative;
-    left: 10px;
+    
   }
   .aboutuspic{
     height: 300px;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .form-group{
+  
+    display: flex;
+    margin-bottom: 10px;
+    
+  }
+  .flex_item{
+    justify-self: left;
+    width: 50px;
+    margin: 0.5rem; 
+    
+  }
+  label{
+    margin-right: 10px;
+  }
+  input{
+    margin-left: 10px;
   }
 
 }
