@@ -1,4 +1,4 @@
-Baba's Cafe
+Baba's Cafe:
 This application is an interactive nutrition website for a local Cafe called Baba's Cafe built using MERN stack development. It includes a home page, about us page and a sign up page.
 You can read about the history of the cafe, browse nutritional information for various menu items and sign up to recieve a weekly newsletter via email. 
 
